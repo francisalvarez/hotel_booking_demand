@@ -12,7 +12,7 @@ Applied Logistic Regression - 3E - Hosmer et al
 
 Chapter 4.2 Purposeful Selection of Covariates
 
-
+# Future Workflow to Integrate
 ### Step 1
 Step 1: Purposeful selection begins with a careful univariable analysis of each independent variable. **For categorical
 variables we suggest doing this via a standard contingency table analysis of the outcome (y = 0, 1) versus the k levels
