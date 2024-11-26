@@ -1,16 +1,25 @@
-# This is a sample Python script.
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+df = pd.read_csv("data/raw/hotel_bookings.csv")
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+def plot_numerical_pairplot_with_loess(df):
+    """
+    Creates a pairplot for all numerical variables in the DataFrame with LOESS lines.
+
+    Parameters:
+    df (pd.DataFrame): The input DataFrame with numerical variables.
+    """
+    # Select only numerical columns
+    numerical_df = df.select_dtypes(include=['number'])
+
+    # Plot pairplot with LOESS lines
+    sns.pairplot(numerical_df.iloc[:, 1:3], kind="reg", plot_kws={'lowess': True})
+    plt.show()
+
+plot_numerical_pairplot_with_loess(df)
